@@ -1,4 +1,4 @@
-# Team Tuskers 
+# TT fetch nfts
 fetching nfts data from blockchain and downloads nfts (image and metadata) from arweave.
 
 ## Setup
