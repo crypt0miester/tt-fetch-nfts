@@ -23,3 +23,5 @@ python fetch_nfts_and_download.py
 this will create a folder called assets which has all nfts image and metadata 
 
 In order to run against other collections change the address field in line 30 to your CM address. 
+
+you might want to remove the .gitkeep file in assets folder 
