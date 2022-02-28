@@ -4,7 +4,7 @@ fetching nfts data from blockchain and downloads nfts (image and metadata) from 
 ## Setup
 
 ```
-git clone https://github.com/
+git clone https://github.com/crypt0miester/tt-fetch-nfts.git
 cd tuskers-fetch-nfts
 virtualenv env
 source env/bin/activate
