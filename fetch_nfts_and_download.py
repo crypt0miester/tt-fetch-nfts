@@ -77,6 +77,7 @@ def download_png_and_json(index):
     unpacked = unpack_metadata_account(base64.b64decode(raw_tokens_info['result'][index]['account']['data'][0]))
     file_name = unpacked['data']['name'][14:]
     metadata_json_url = unpacked['data']['uri'] 
+    print(f'working on {file_name}')
     if not path.exists(f'assets/{file_name}.png'):
         resp = json.loads(requests.get(metadata_json_url).text)
         with open(f'assets/{file_name}.json', 'w', encoding='utf-8') as f:
@@ -84,7 +85,7 @@ def download_png_and_json(index):
 
         image_url = resp['image']
         
-        # dirty work around 
+        # dirty work around due to arweave not resolving sometimes.
         try:
             requested_image = requests.get(image_url, allow_redirects=True)
         except: 
