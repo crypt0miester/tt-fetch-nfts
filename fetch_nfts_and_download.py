@@ -77,13 +77,20 @@ def download_png_and_json(index):
     unpacked = unpack_metadata_account(base64.b64decode(raw_tokens_info['result'][index]['account']['data'][0]))
     file_name = unpacked['data']['name'][14:]
     metadata_json_url = unpacked['data']['uri'] 
-    if not path.exists(f'assets/{file_name}.png')
+    if not path.exists(f'assets/{file_name}.png'):
         resp = json.loads(requests.get(metadata_json_url).text)
         with open(f'assets/{file_name}.json', 'w', encoding='utf-8') as f:
             json.dump(resp, f, ensure_ascii=False, indent=4)
 
         image_url = resp['image']
-        requested_image = requests.get(image_url, allow_redirects=True)
+        
+        # dirty work around 
+        try:
+            requested_image = requests.get(image_url, allow_redirects=True)
+        except: 
+            time.sleep(2)
+            requested_image = requests.get(image_url, allow_redirects=True)
+
         with open(f"assets/{file_name}.png", "wb") as f:
             f.write(requested_image.content)
 
