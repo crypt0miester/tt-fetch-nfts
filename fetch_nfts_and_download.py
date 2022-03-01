@@ -88,12 +88,11 @@ def download_png_and_json(index):
         # dirty work around due to arweave not resolving sometimes.
         try:
             requested_image = requests.get(image_url, allow_redirects=True)
-        except: 
-            time.sleep(2)
-            requested_image = requests.get(image_url, allow_redirects=True)
 
-        with open(f"assets/{file_name}.png", "wb") as f:
-            f.write(requested_image.content)
+            with open(f"assets/{file_name}.png", "wb") as f:
+                f.write(requested_image.content)
+        except:
+            pass
 
 data_length = 9876
 list_of_index = [index for index in range(9876)]
