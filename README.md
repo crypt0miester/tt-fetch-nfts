@@ -35,6 +35,11 @@ python3 count_occurrence_in_merged.py
 ```
 this will create a json file containing all occurance of a property/attribute in the collection. (useful for analytics)
 
+```
+python3 group_mint_addresses.py
+```
+this will create a json file containing the mint addresses and the names of each nft.
+
 In order to run against other collections change the address field in line 30 to your CM address. 
 
 you might want to remove the .gitkeep file in assets folder 
